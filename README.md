@@ -15,4 +15,4 @@ python VQAE_experiment/scripts/run_toy_experiment.py --config VQAE_experiment/co
 python -m pytest VQAE_experiment/tests/ -v
 ```
 
-See [VQAE_experiment/README.md](VQAE_experiment/README.md) for full documentation (English with 中文 notes).
+See [VQAE_experiment/README.md](VQAE_experiment/README.md) for full documentation.
