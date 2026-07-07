@@ -2,3 +2,5 @@ venv/
 .venv/
 __pycache__/
 .vscode/
+VQAE_experiment/data/raw/
+VQAE_experiment/outputs/
