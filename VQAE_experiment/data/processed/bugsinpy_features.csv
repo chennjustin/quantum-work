@@ -1,0 +1,3 @@
+project,bug_id,revision,test_id,label,test_runtime_seconds,coverage_ratio,covered_line_count,changed_line_coverage_ratio
+youtube-dl,2,fixed,test_parse_mpd_formats,0,0.078,,,
+youtube-dl,2,buggy,test_parse_mpd_formats,1,0.089,,,

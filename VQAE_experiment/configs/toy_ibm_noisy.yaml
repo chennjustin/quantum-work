@@ -1,0 +1,38 @@
+experiment_name: toy_ibm_noisy
+training_mode: noisy_training
+
+backend:
+  mode: ibm_fake_noisy
+  fake_backend_name: fake_manila
+  shots: 2048
+  seed_simulator: 123
+  optimization_level: 1
+
+vqae:
+  n_input_qubits: 2
+  n_latent_qubits: 1
+  ansatz_depth: 2
+
+training:
+  objective: swap_test_loss
+  optimizer: COBYLA
+  maxiter: 40
+  optimizer_seed: 11
+  initial_parameter_scale: 0.15
+  cobyla_rhobeg: 0.15
+
+data:
+  dataset: toy
+  toy:
+    normal_mu: 0.5
+    normal_sigma: 0.05
+    anomaly_delta_min: 0.15
+    anomaly_delta_max: 0.30
+    train_size: 30
+    validation_size: 30
+    test_size: 60
+    seed: 7
+
+evaluation:
+  validation_quantile: 0.95
+  noise_seeds: [101, 202, 303]

@@ -1,0 +1,37 @@
+experiment_name: bugsinpy_sample_fast
+training_mode: noisy_training
+
+backend:
+  mode: ibm_fake_noisy
+  fake_backend_name: fake_manila
+  shots: 512
+  seed_simulator: 123
+  optimization_level: 1
+
+vqae:
+  n_input_qubits: 4
+  n_latent_qubits: 2
+  ansatz_depth: 1
+
+training:
+  objective: swap_test_loss
+  optimizer: COBYLA
+  maxiter: 8
+  optimizer_seed: 11
+  initial_parameter_scale: 0.10
+  cobyla_rhobeg: 0.10
+
+data:
+  dataset: bugsinpy
+  bugsinpy:
+    bugsinpy_root: ""
+    command_prefix: []
+    selected_features:
+      - test_runtime_seconds
+      - coverage_ratio
+      - covered_line_count
+      - changed_line_coverage_ratio
+
+evaluation:
+  validation_quantile: 0.95
+  noise_seeds: [101, 202]
