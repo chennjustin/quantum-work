@@ -90,9 +90,12 @@ class ToyDataConfig:
 @dataclass
 class BugsInPyDataConfig:
     bugsinpy_root: str = ""
+    workspace_root: str = ""
     command_prefix: list[str] = field(default_factory=list)
     selected_projects: list[str] = field(default_factory=list)
     selected_bug_ids: list[str] = field(default_factory=list)
+    compile_timeout_seconds: int = 3600
+    test_timeout_seconds: int = 1800
     selected_features: list[str] = field(
         default_factory=lambda: [
             "test_runtime_seconds",

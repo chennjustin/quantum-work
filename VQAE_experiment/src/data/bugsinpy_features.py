@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -22,6 +23,136 @@ OPTIONAL_FEATURES = [
     "executed_function_count",
     "changed_file_coverage_ratio",
 ]
+
+
+def parse_unittest_runtime(output: str) -> float | None:
+    """Parse `Ran N test(s) in X.XXXs` from unittest output."""
+
+    match = re.search(r"Ran \d+ tests? in ([\d.]+)s", output)
+    if not match:
+        return None
+    return float(match.group(1))
+
+
+def parse_coverage_report_text(report_text: str) -> dict[str, Any]:
+    """Parse `coverage report -m` output into aggregate and per-file stats."""
+
+    per_file: dict[str, dict[str, int]] = {}
+    total_lines = covered_lines = None
+
+    for line in report_text.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("-") or stripped.startswith("Name"):
+            continue
+        parts = stripped.split()
+        if stripped.startswith("TOTAL") and len(parts) >= 4:
+            total_lines = int(parts[1])
+            miss = int(parts[2])
+            covered_lines = total_lines - miss
+            continue
+        if len(parts) < 4:
+            continue
+        try:
+            stmts = int(parts[-4])
+            miss = int(parts[-3])
+        except ValueError:
+            continue
+        filename = " ".join(parts[:-4])
+        per_file[filename] = {
+            "stmts": stmts,
+            "miss": miss,
+            "covered": stmts - miss,
+        }
+
+    if total_lines is None:
+        return {"available": False}
+
+    return {
+        "available": True,
+        "total_lines": total_lines,
+        "covered_lines": covered_lines,
+        "per_file": per_file,
+    }
+
+
+def parse_patch_metadata(patch_text: str) -> dict[str, Any]:
+    """Parse a unified diff for changed files and approximate changed lines."""
+
+    changed_files: list[str] = []
+    changed_lines = 0
+    current_file: str | None = None
+
+    for line in patch_text.splitlines():
+        if line.startswith("diff --git "):
+            match = re.search(r"b/(.+)$", line)
+            current_file = match.group(1) if match else None
+            if current_file and current_file not in changed_files:
+                changed_files.append(current_file)
+            continue
+        if line.startswith(("+++", "---", "@@")):
+            continue
+        if line.startswith(("+", "-")):
+            changed_lines += 1
+
+    return {
+        "changed_files": changed_files,
+        "changed_lines_total": changed_lines,
+    }
+
+
+def build_coverage_data(
+    report_text: str,
+    patch_text: str | None = None,
+) -> dict[str, Any]:
+    """Combine coverage report and optional patch metadata."""
+
+    parsed = parse_coverage_report_text(report_text)
+    if not parsed.get("available", False):
+        return {"available": False}
+
+    coverage_data: dict[str, Any] = {
+        "available": True,
+        "total_lines": parsed["total_lines"],
+        "covered_lines": parsed["covered_lines"],
+        "executed_files": len(parsed.get("per_file", {})),
+        "executed_functions": 0,
+        "changed_lines_total": 0,
+        "changed_lines_covered": 0,
+        "changed_files_total": 0,
+        "changed_files_covered": 0,
+    }
+
+    if not patch_text:
+        return coverage_data
+
+    patch_meta = parse_patch_metadata(patch_text)
+    changed_files = patch_meta["changed_files"]
+    coverage_data["changed_lines_total"] = patch_meta["changed_lines_total"]
+    coverage_data["changed_files_total"] = len(changed_files)
+
+    per_file = parsed.get("per_file", {})
+    changed_covered = 0
+    changed_files_covered = 0
+    for filename in changed_files:
+        normalized = filename.replace("\\", "/")
+        file_stats = None
+        for key, stats in per_file.items():
+            key_norm = key.replace("\\", "/")
+            if key_norm.endswith(normalized) or normalized.endswith(key_norm):
+                file_stats = stats
+                break
+        if file_stats is None:
+            continue
+        changed_covered += file_stats["covered"]
+        if file_stats["covered"] > 0:
+            changed_files_covered += 1
+
+    coverage_data["changed_lines_covered"] = min(
+        changed_covered,
+        coverage_data["changed_lines_total"],
+    )
+    coverage_data["changed_files_covered"] = changed_files_covered
+    return coverage_data
 
 
 def parse_coverage_artifact(coverage_path: Path) -> dict[str, Any]:

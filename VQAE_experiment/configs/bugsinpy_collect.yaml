@@ -1,10 +1,9 @@
-experiment_name: bugsinpy_sample_fast
-training_mode: noisy_training
+experiment_name: bugsinpy_collect
+training_mode: ideal_training
 
 backend:
-  mode: ibm_fake_noisy
-  fake_backend_name: fake_sherbrooke
-  shots: 512
+  mode: ideal
+  shots: 4096
   seed_simulator: 123
   optimization_level: 1
 
@@ -16,7 +15,7 @@ vqae:
 training:
   objective: swap_test_loss
   optimizer: COBYLA
-  maxiter: 8
+  maxiter: 50
   optimizer_seed: 11
   initial_parameter_scale: 0.10
   cobyla_rhobeg: 0.10
@@ -24,8 +23,22 @@ training:
 data:
   dataset: bugsinpy
   bugsinpy:
-    bugsinpy_root: ""
+    bugsinpy_root: ${BUGSINPY_ROOT}
+    workspace_root: ${BUGSINPY_WORKSPACE}
     command_prefix: []
+    selected_projects:
+      - youtube-dl
+    selected_bug_ids:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+    compile_timeout_seconds: 3600
+    test_timeout_seconds: 1800
     selected_features:
       - test_runtime_seconds
       - coverage_ratio
