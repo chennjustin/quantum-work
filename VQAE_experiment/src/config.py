@@ -88,12 +88,22 @@ class ToyDataConfig:
 
 
 @dataclass
+class BugsInPyCollectionConfig:
+    """Explicit collection quotas."""
+
+    num_bugs: int = 100
+    # "all_triggering" = every command in run_test.sh; or a positive int cap per bug.
+    tests_per_bug: str | int = "all_triggering"
+
+
+@dataclass
 class BugsInPyDataConfig:
     bugsinpy_root: str = ""
     workspace_root: str = ""
     command_prefix: list[str] = field(default_factory=list)
     selected_projects: list[str] = field(default_factory=list)
     selected_bug_ids: list[str] = field(default_factory=list)
+    collection: BugsInPyCollectionConfig = field(default_factory=BugsInPyCollectionConfig)
     compile_timeout_seconds: int = 3600
     test_timeout_seconds: int = 1800
     selected_features: list[str] = field(
@@ -149,6 +159,7 @@ def _merge_dataclass(cls: type, data: dict[str, Any]) -> Any:
                 DataConfig,
                 ToyDataConfig,
                 BugsInPyDataConfig,
+                BugsInPyCollectionConfig,
             ):
                 nested[name] = _merge_dataclass(field_type, filtered.pop(name))
     filtered.update(nested)
@@ -173,7 +184,10 @@ def load_config(path: str | Path) -> ExperimentConfig:
     data_raw = raw.get("data", {})
     dataset = data_raw.get("dataset", "toy")
     toy = _merge_dataclass(ToyDataConfig, data_raw.get("toy", data_raw if dataset == "toy" else {}))
-    bugsinpy = _merge_dataclass(BugsInPyDataConfig, data_raw.get("bugsinpy", data_raw if dataset == "bugsinpy" else {}))
+    bugsinpy_raw = dict(data_raw.get("bugsinpy", data_raw if dataset == "bugsinpy" else {}))
+    collection_raw = bugsinpy_raw.pop("collection", {})
+    bugsinpy = _merge_dataclass(BugsInPyDataConfig, bugsinpy_raw)
+    bugsinpy.collection = _merge_dataclass(BugsInPyCollectionConfig, collection_raw)
     data = DataConfig(dataset=dataset, toy=toy, bugsinpy=bugsinpy)
 
     return ExperimentConfig(

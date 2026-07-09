@@ -1,0 +1,168 @@
+project,bug_id,revision,error
+youtube-dl,27,buggy,"Command '['wsl', 'bash', '-lc', 'export PATH=""$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin"" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_27_buggy/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds"
+youtube-dl,28,fixed,"Command '['wsl', 'bash', '-lc', 'export PATH=""$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin"" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_28_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds"
+youtube-dl,29,fixed,"Command '['wsl', 'bash', '-lc', 'export PATH=""$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin"" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_29_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds"
+youtube-dl,30,fixed,"Command '['wsl', 'bash', '-lc', 'export PATH=""$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin"" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_30_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds"
+youtube-dl,31,fixed,"Command '['wsl', 'bash', '-lc', 'export PATH=""$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin"" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_31_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds"
+youtube-dl,34,fixed,"Checkout failed for youtube-dl bug 34 (fixed):
+PROJECT_NAME: youtube-dl
+BUG_ID: 34
+VERSION_ID: 1
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed
+https://github.com/ytdl-org/youtube-dl
+github_url=""https://github.com/ytdl-org/youtube-dl""
+status=""OK"" 
+cause=""N.A.""
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl'...
+fatal: --stdin requires a git repository
+fatal: fetch-pack: invalid index-pack output
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '410f3e73ab268f74a455798ee39de5caba90caea'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '07e764439a1cdd3a3b95fbf21acc6a517c6a889e'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/34/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+"
+youtube-dl,35,fixed,"Checkout failed for youtube-dl bug 35 (fixed):
+PROJECT_NAME: youtube-dl
+BUG_ID: 35
+VERSION_ID: 1
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed
+https://github.com/ytdl-org/youtube-dl
+github_url=""https://github.com/ytdl-org/youtube-dl""
+status=""OK"" 
+cause=""N.A.""
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl'...
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '99b67fecc5ab6c57eada1e1678034dd71c57e338'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '89294b5f50462ede8ba83463ff262eb2c5219e1b'.
+warning: failed to remove test/: No such file or directory
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/35/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+"
+youtube-dl,36,buggy,"Checkout failed for youtube-dl bug 36 (buggy):
+PROJECT_NAME: youtube-dl
+BUG_ID: 36
+VERSION_ID: 0
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy
+https://github.com/ytdl-org/youtube-dl
+github_url=""https://github.com/ytdl-org/youtube-dl""
+status=""OK"" 
+cause=""N.A.""
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl'...
+error: unable to write file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/.git/objects/pack/pack-b1cc1bba440f3bc79534ef7220904430d0f293ab.pack: No such file or directory
+fatal: unable to rename temporary '*.pack' file to '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/.git/objects/pack/pack-b1cc1bba440f3bc79534ef7220904430d0f293ab.pack'
+fatal: fetch-pack: invalid index-pack output
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object 'a6da7b6b9657f621a927cb4c7bc46cf7c6c27b11'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/test/test_all_urls.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object '173a7026d59bacfbfe7a8eea92e10ef6e89d1798'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/36/test/test_all_urls.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+"
+youtube-dl,38,buggy,Missing run test script: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\youtube-dl_38_buggy\youtube-dl\bugsinpy_run_test.sh
+youtube-dl,40,fixed,"Checkout failed for youtube-dl bug 40 (fixed):
+PROJECT_NAME: youtube-dl
+BUG_ID: 40
+VERSION_ID: 1
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed
+https://github.com/ytdl-org/youtube-dl
+github_url=""https://github.com/ytdl-org/youtube-dl""
+status=""OK"" 
+cause=""N.A.""
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl'...
+fatal: --stdin requires a git repository
+fatal: fetch-pack: invalid index-pack output
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object 'b53466e1680db3d710415329674c887d38af46c5'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '6a7a38967976ea0d0b911c2965aaa74bed2976d7'.
+warning: failed to remove test/: No such file or directory
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/40/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+"
+youtube-dl,43,buggy,"Checkout failed for youtube-dl bug 43 (buggy):
+PROJECT_NAME: youtube-dl
+BUG_ID: 43
+VERSION_ID: 0
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy
+https://github.com/ytdl-org/youtube-dl
+github_url=""https://github.com/ytdl-org/youtube-dl""
+status=""OK"" 
+cause=""N.A.""
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl'...
+error: could not lock config file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/.git/config: No such file or directory
+fatal: could not set 'core.repositoryformatversion' to '0'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object 'd6c7a367e88096bb17e323954002c084477fe908'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object 'cecaaf3f58ad9f544dbb79af1e565d9353fa2b2d'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/43/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+"
+tqdm,4,buggy,"Checkout failed for tqdm bug 4 (buggy):
+PROJECT_NAME: tqdm
+BUG_ID: 4
+VERSION_ID: 0
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy
+https://github.com/tqdm/tqdm
+github_url=""https://github.com/tqdm/tqdm""
+status=""OK"" 
+cause=""N.A.""
+Removing tqdm/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm'...
+error: could not lock config file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/.git/config: No such file or directory
+fatal: could not set 'core.repositoryformatversion' to '0'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm: No such file or directory
+fatal: Could not parse object '964dee631d0ed30e2f799b42fc58ba5e73795a08'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/tqdm/tests/tests_tqdm.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm: No such file or directory
+fatal: Could not parse object '03b347646492131d889871939b40457d29147216'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/tqdm/bugs/4/tqdm/tests/tests_tqdm.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_run_test.sh': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_setup.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+"

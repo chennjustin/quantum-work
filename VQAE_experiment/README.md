@@ -60,21 +60,31 @@ MITACS/BugsInPy/
       ...
 
 quantum-work/VQAE_experiment/
-  data/raw/bugsinpy/runs/       # small logs per revision
+  data/raw/bugsinpy/runs/       # per-revision artifacts
       youtube-dl_1_fixed/
-        checkout/  compile/  test/  coverage/
-        features.json           # single-row feature cache
+        checkout/  compile/
+        test_test_match_str/    # one folder per triggering test
+          run/  coverage/  features.json
+        aggregate/features.json # revision-level summary
   data/processed/
-      bugsinpy_features.csv       # final table read by VQAE
+      bugsinpy_features.csv                 # primary test-level table (VQAE input)
+      bugsinpy_features_revision_aggregate.csv  # supplementary revision aggregates
 ```
 
-**One row in `bugsinpy_features.csv` = one test execution**
+**Primary row unit:** one triggering test execution on one revision  
+`(project, bug_id, revision, test_id)`
 
 | Column | Role |
 |--------|------|
 | `project`, `bug_id`, `revision`, `test_id` | metadata (not fed to the model) |
+| `granularity` | `test` for primary rows |
 | `label` | 0 = normal fixed, 1 = buggy (evaluation only) |
 | `test_runtime_seconds`, `coverage_ratio`, … | model input features |
+
+Collection runs each line in BugsInPy `run_test.sh` separately via `bugsinpy-test -t` and `bugsinpy-coverage -t`.  
+Only **triggering tests** are collected — not the full project test suite.
+
+**Revision aggregate file** (`bugsinpy_features_revision_aggregate.csv`) stores one row per revision with `mean_*/std_*/min_*/max_*` feature summaries and `pass_rate`. Use it for supplementary experiments, not the main VQAE training table.
 
 Collection script: `scripts/run_bugsinpy_collection.py`  
 Command wrapper: `src/data/bugsinpy_runner.py`  
@@ -89,7 +99,7 @@ data/manifests/
   test_manifest.csv         # held-out bugs: fixed + buggy (final evaluation)
 ```
 
-Splits are grouped by `(project, bug_id)` so the same bug never appears in both train and test.
+Splits are grouped by `(project, bug_id)` so all tests from the same bug stay in the same split (no leakage across train/test).
 
 Toy data is not stored as CSV; `src/data/synthetic.py` → `make_toy_datasets()` generates angle matrices at runtime.
 

@@ -234,10 +234,32 @@ def run_test(
     output_dir: Path | None = None,
     timeout: int | None = 1800,
 ) -> CommandResult:
-    """Run the bug-relevant test in the current checkout."""
+    """Run all bug-relevant triggering tests in the current checkout."""
 
     result = run_command(
         ["bugsinpy-test"],
+        cwd=project_dir,
+        bugsinpy_root=bugsinpy_root,
+        command_prefix=command_prefix,
+        timeout=timeout,
+    )
+    if output_dir:
+        save_command_artifacts(result, output_dir)
+    return result
+
+
+def run_single_test(
+    project_dir: Path,
+    bugsinpy_root: Path,
+    single_test: str,
+    command_prefix: list[str] | None = None,
+    output_dir: Path | None = None,
+    timeout: int | None = 1800,
+) -> CommandResult:
+    """Run one triggering test via ``bugsinpy-test -t``."""
+
+    result = run_command(
+        ["bugsinpy-test", "-t", single_test],
         cwd=project_dir,
         bugsinpy_root=bugsinpy_root,
         command_prefix=command_prefix,
@@ -255,7 +277,7 @@ def run_coverage(
     output_dir: Path | None = None,
     timeout: int | None = 1800,
 ) -> CommandResult:
-    """Run coverage for the bug-relevant test."""
+    """Run coverage for all bug-relevant triggering tests."""
 
     result = run_command(
         ["bugsinpy-coverage"],
@@ -269,26 +291,98 @@ def run_coverage(
     return result
 
 
-def read_test_command(project_dir: Path) -> str:
-    """Read the unittest/pytest command from bugsinpy_run_test.sh."""
+def run_single_coverage(
+    project_dir: Path,
+    bugsinpy_root: Path,
+    single_test: str,
+    command_prefix: list[str] | None = None,
+    output_dir: Path | None = None,
+    timeout: int | None = 1800,
+) -> CommandResult:
+    """Run coverage for one triggering test via ``bugsinpy-coverage -t``."""
 
-    script_path = project_dir / "bugsinpy_run_test.sh"
+    result = run_command(
+        ["bugsinpy-coverage", "-t", single_test],
+        cwd=project_dir,
+        bugsinpy_root=bugsinpy_root,
+        command_prefix=command_prefix,
+        timeout=timeout,
+    )
+    if output_dir:
+        save_command_artifacts(result, output_dir)
+    return result
+
+
+def parse_triggering_test_commands(script_path: Path) -> list[str]:
+    """Parse non-comment command lines from a BugsInPy ``run_test.sh`` file."""
+
     if not script_path.exists():
         raise FileNotFoundError(f"Missing run test script: {script_path}")
+
+    commands: list[str] = []
     for line in script_path.read_text(encoding="utf-8").splitlines():
-        stripped = line.strip()
+        stripped = line.strip().rstrip("\r")
         if stripped and not stripped.startswith("#"):
-            return stripped
-    raise ValueError(f"No test command found in {script_path}")
+            commands.append(stripped)
+    if not commands:
+        raise ValueError(f"No test commands found in {script_path}")
+    return commands
+
+
+def read_triggering_tests_from_metadata(
+    bugsinpy_root: Path,
+    project: str,
+    bug_id: str,
+) -> list[str]:
+    """Read triggering test commands from BugsInPy project metadata."""
+
+    script_path = bugsinpy_root / "projects" / project / "bugs" / str(bug_id) / "run_test.sh"
+    return parse_triggering_test_commands(script_path)
+
+
+def read_test_command(project_dir: Path) -> str:
+    """Read the first unittest/pytest command from ``bugsinpy_run_test.sh``."""
+
+    commands = parse_triggering_test_commands(project_dir / "bugsinpy_run_test.sh")
+    return commands[0]
+
+
+def single_test_target(test_command: str) -> str:
+    """Convert a ``run_test.sh`` line to a ``bugsinpy-test -t`` argument."""
+
+    command = test_command.strip()
+    if command.startswith("tox "):
+        return command[4:].strip()
+    if "pytest" in command:
+        match = re.search(r"pytest\s+(.+)$", command)
+        if match:
+            return match.group(1).strip()
+    match = re.search(r"unittest(?:\s+-q)?\s+(.+)$", command)
+    if match:
+        return match.group(1).strip()
+    raise ValueError(f"Cannot parse single-test target from command: {command}")
 
 
 def extract_test_id(test_command: str) -> str:
     """Extract a stable test identifier from a BugsInPy test command."""
 
-    match = re.search(r"\.([A-Za-z0-9_]+)\s*$", test_command.strip())
+    command = test_command.strip()
+    if "::" in command:
+        return command.split("::")[-1]
+    match = re.search(r"\.([A-Za-z0-9_]+)\s*$", command)
     if match:
         return match.group(1)
-    return test_command.strip().replace(" ", "_")
+    return command.replace(" ", "_")
+
+
+def read_coverage_output(project_dir: Path, coverage_result: CommandResult) -> str:
+    """Prefer BugsInPy coverage artifact files, then fall back to command output."""
+
+    for name in ("coverage_singletest_bugsinpy.txt", "coverage_bugsinpy.txt"):
+        path = project_dir / name
+        if path.exists():
+            return path.read_text(encoding="utf-8")
+    return "\n".join(part for part in [coverage_result.stdout, coverage_result.stderr] if part)
 
 
 def project_checkout_dir(work_dir: Path, project: str) -> Path:

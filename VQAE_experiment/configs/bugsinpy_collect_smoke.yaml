@@ -1,0 +1,54 @@
+experiment_name: bugsinpy_collect_smoke
+training_mode: ideal_training
+
+backend:
+  mode: ideal
+  shots: 4096
+  seed_simulator: 123
+  optimization_level: 1
+
+vqae:
+  n_input_qubits: 4
+  n_latent_qubits: 2
+  ansatz_depth: 1
+
+training:
+  objective: swap_test_loss
+  optimizer: COBYLA
+  maxiter: 50
+  optimizer_seed: 11
+  initial_parameter_scale: 0.10
+  cobyla_rhobeg: 0.10
+
+data:
+  dataset: bugsinpy
+  bugsinpy:
+    bugsinpy_root: ${BUGSINPY_ROOT}
+    workspace_root: ${BUGSINPY_WORKSPACE}
+    command_prefix: []
+    selected_projects:
+      - youtube-dl
+    selected_bug_ids:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+    compile_timeout_seconds: 3600
+    test_timeout_seconds: 1800
+    selected_features:
+      - test_runtime_seconds
+      - coverage_ratio
+      - covered_line_count
+      - changed_line_coverage_ratio
+    collection:
+      num_bugs: 8
+      tests_per_bug: all_triggering
+
+evaluation:
+  validation_quantile: 0.95
+  noise_seeds: [101, 202]
+

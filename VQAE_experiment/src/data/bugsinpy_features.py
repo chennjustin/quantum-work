@@ -9,7 +9,10 @@ from typing import Any
 
 import pandas as pd
 
-FEATURE_SCHEMA_VERSION = "1.0"
+FEATURE_SCHEMA_VERSION = "1.1"
+
+PROCESSED_TEST_LEVEL_FILENAME = "bugsinpy_features.csv"
+PROCESSED_REVISION_AGGREGATE_FILENAME = "bugsinpy_features_revision_aggregate.csv"
 
 DEFAULT_FEATURES = [
     "test_runtime_seconds",
@@ -201,6 +204,7 @@ def build_execution_row(
     label: int,
     features: dict[str, float | None],
     metadata: dict[str, Any] | None = None,
+    granularity: str = "test",
 ) -> dict[str, Any]:
     """Build one execution record."""
 
@@ -210,6 +214,7 @@ def build_execution_row(
         "revision": revision,
         "test_id": test_id,
         "label": label,
+        "granularity": granularity,
     }
     row.update(features)
     if metadata:
@@ -217,10 +222,78 @@ def build_execution_row(
     return row
 
 
-def load_processed_features(path: Path) -> pd.DataFrame:
-    """Load processed feature CSV."""
+def aggregate_revision_features(test_rows: list[dict[str, Any]]) -> dict[str, float | None]:
+    """Aggregate per-test execution features into one revision-level vector."""
 
-    return pd.read_csv(path)
+    if not test_rows:
+        raise ValueError("Cannot aggregate an empty test row list")
+
+    feature_names = DEFAULT_FEATURES + OPTIONAL_FEATURES
+    aggregated: dict[str, float | None] = {}
+
+    for name in feature_names:
+        values = [float(row[name]) for row in test_rows if row.get(name) is not None]
+        if not values:
+            aggregated[f"mean_{name}"] = None
+            aggregated[f"std_{name}"] = None
+            aggregated[f"min_{name}"] = None
+            aggregated[f"max_{name}"] = None
+            continue
+        mean_value = float(sum(values) / len(values))
+        aggregated[f"mean_{name}"] = mean_value
+        if len(values) == 1:
+            aggregated[f"std_{name}"] = 0.0
+        else:
+            variance = sum((value - mean_value) ** 2 for value in values) / len(values)
+            aggregated[f"std_{name}"] = float(variance**0.5)
+        aggregated[f"min_{name}"] = float(min(values))
+        aggregated[f"max_{name}"] = float(max(values))
+
+    pass_codes = [
+        int(row["meta_test_returncode"])
+        for row in test_rows
+        if row.get("meta_test_returncode") is not None
+    ]
+    if pass_codes:
+        aggregated["pass_rate"] = float(sum(code == 0 for code in pass_codes) / len(pass_codes))
+    else:
+        aggregated["pass_rate"] = None
+    aggregated["n_triggering_tests"] = float(len(test_rows))
+    return aggregated
+
+
+def build_revision_aggregate_row(
+    project: str,
+    bug_id: str,
+    revision: str,
+    label: int,
+    test_rows: list[dict[str, Any]],
+    metadata: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Build one revision-level aggregate record from test-level rows."""
+
+    aggregate_features = aggregate_revision_features(test_rows)
+    aggregate_metadata = dict(metadata or {})
+    aggregate_metadata["source_test_ids"] = ",".join(row["test_id"] for row in test_rows)
+    return build_execution_row(
+        project=project,
+        bug_id=bug_id,
+        revision=revision,
+        test_id="__aggregate__",
+        label=label,
+        features=aggregate_features,
+        metadata=aggregate_metadata,
+        granularity="revision_aggregate",
+    )
+
+
+def load_processed_features(path: Path) -> pd.DataFrame:
+    """Load processed feature CSV (test-level rows for VQAE)."""
+
+    df = pd.read_csv(path)
+    if "granularity" in df.columns:
+        df = df[df["granularity"] == "test"].copy()
+    return df.reset_index(drop=True)
 
 def save_processed_features(df: pd.DataFrame, path: Path) -> None:
     """Save processed feature CSV."""

@@ -26,24 +26,41 @@ data:
     bugsinpy_root: ${BUGSINPY_ROOT}
     workspace_root: ${BUGSINPY_WORKSPACE}
     command_prefix: []
+
+    # Fast / light projects first (quick compile, high success rate).
+    # Heavy or known-to-hang projects (sanic, spacy, ansible, black, keras,
+    # pandas, matplotlib, thefuck) are intentionally excluded to keep collection fast.
     selected_projects:
       - youtube-dl
-    selected_bug_ids:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-    compile_timeout_seconds: 3600
-    test_timeout_seconds: 1800
+      - tqdm
+      - cookiecutter
+      - PySnooper
+      - httpie
+      - fastapi
+      - tornado
+      - luigi
+      - scrapy
+
+    # Leave empty to auto-pick bug ids 1,2,3,... within each project.
+    selected_bug_ids: []
+
+    # Fail fast: legit projects compile in a few minutes. A build that runs
+    # longer than 20 min is almost always broken in this environment.
+    compile_timeout_seconds: 1200
+    test_timeout_seconds: 900
+
     selected_features:
       - test_runtime_seconds
       - coverage_ratio
       - covered_line_count
       - changed_line_coverage_ratio
+
+    collection:
+      # QUOTA (explicit):
+      #   100 bugs, all triggering tests in run_test.sh, 2 revisions per bug
+      #   Expected test-level rows: ~200 minimum, typically 250-400
+      num_bugs: 100
+      tests_per_bug: all_triggering
 
 evaluation:
   validation_quantile: 0.95

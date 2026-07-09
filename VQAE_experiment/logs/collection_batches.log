@@ -1,0 +1,1537 @@
+
+========================================================================
+2026-07-07T15:28:26.056712  smoke-8-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect_smoke.yaml
+usage: run_bugsinpy_collection.py [-h] --config CONFIG [--skip-existing]
+                                  [--num-bugs NUM_BUGS]
+run_bugsinpy_collection.py: error: the following arguments are required: --config
+
+Exit code: 2
+
+========================================================================
+2026-07-07T15:28:35.967818  smoke-8-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect_smoke.yaml
+Collection plan: 8 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 16 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (8): [('youtube-dl', '1'), ('youtube-dl', '2'), ('youtube-dl', '3'), ('youtube-dl', '4'), ('youtube-dl', '5')]...
+Collecting youtube-dl bug 1
+  -> youtube-dl bug 1 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 2
+  -> youtube-dl bug 2 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 3
+  -> youtube-dl bug 3 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 4
+  -> youtube-dl bug 4 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 5
+  -> youtube-dl bug 5 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 6
+  -> youtube-dl bug 6 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 7
+  -> youtube-dl bug 7 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 8
+  -> youtube-dl bug 8 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 8 (buggy)
+     collected 1 test execution(s)
+Saved 16 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 16 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+
+Exit code: 0
+
+========================================================================
+2026-07-07T16:51:40.762301  batch-25-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect.yaml --num-bugs 25
+Collection plan: 25 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 50 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (25): [('httpie', '1'), ('httpie', '2'), ('httpie', '3'), ('httpie', '4'), ('httpie', '5')]...
+Collecting httpie bug 1
+  -> httpie bug 1 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 2
+  -> httpie bug 2 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 3
+  -> httpie bug 3 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 4
+  -> httpie bug 4 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 5
+  -> httpie bug 5 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 1
+  -> cookiecutter bug 1 (fixed)
+Traceback (most recent call last):
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py", line 476, in <module>
+    main()
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py", line 445, in main
+    revision_tests, aggregate_row = collect_revision(
+                                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py", line 324, in collect_revision
+    row = _collect_single_test_execution(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py", line 196, in _collect_single_test_execution
+    single_target = single_test_target(test_command)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\src\data\bugsinpy_runner.py", line 361, in single_test_target
+    raise ValueError(f"Cannot parse single-test target from command: {command}")
+ValueError: Cannot parse single-test target from command: tox tests/test_generate_context.py::test_generate_context_decodes_non_ascii_chars
+
+Exit code: 1
+
+========================================================================
+2026-07-07T22:12:43.365534  smoke-8-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect_smoke.yaml --skip-existing
+Collection plan: 8 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 16 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (8): [('youtube-dl', '1'), ('youtube-dl', '2'), ('youtube-dl', '3'), ('youtube-dl', '4'), ('youtube-dl', '5')]...
+Collecting youtube-dl bug 1
+  -> youtube-dl bug 1 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 2
+  -> youtube-dl bug 2 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 3
+  -> youtube-dl bug 3 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 4
+  -> youtube-dl bug 4 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 5
+  -> youtube-dl bug 5 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 6
+  -> youtube-dl bug 6 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 7
+  -> youtube-dl bug 7 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 8
+  -> youtube-dl bug 8 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 8 (buggy)
+     collected 1 test execution(s)
+Saved 16 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 16 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+
+Exit code: 0
+
+========================================================================
+2026-07-07T22:12:44.041343  batch-25-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect.yaml --num-bugs 25 --skip-existing
+Collection plan: 25 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 50 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (25): [('httpie', '1'), ('httpie', '2'), ('httpie', '3'), ('httpie', '4'), ('httpie', '5')]...
+Collecting httpie bug 1
+  -> httpie bug 1 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 2
+  -> httpie bug 2 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 3
+  -> httpie bug 3 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 4
+  -> httpie bug 4 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 5
+  -> httpie bug 5 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 1
+  -> cookiecutter bug 1 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 2
+  -> cookiecutter bug 2 (fixed)
+     collected 2 test execution(s)
+  -> cookiecutter bug 2 (buggy)
+     collected 2 test execution(s)
+Collecting cookiecutter bug 3
+  -> cookiecutter bug 3 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 4
+  -> cookiecutter bug 4 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting sanic bug 1
+  -> sanic bug 1 (fixed)
+Traceback (most recent call last):
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py", line 476, in <module>
+    main()
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py", line 445, in main
+    revision_tests, aggregate_row = collect_revision(
+                                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py", line 297, in collect_revision
+    compile_result = compile_revision(
+                     ^^^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\src\data\bugsinpy_runner.py", line 218, in compile_revision
+    result = run_command(
+             ^^^^^^^^^^^^
+  File "C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\src\data\bugsinpy_runner.py", line 90, in run_command
+    proc = subprocess.run(
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chenj\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1628, in _communicate
+    raise TimeoutExpired(self.args, orig_timeout)
+subprocess.TimeoutExpired: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/sanic_1_fixed/sanic && bugsinpy-compile']' timed out after 3600 seconds
+
+Exit code: 1
+
+========================================================================
+2026-07-08T02:57:15.495605  smoke-8-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect_smoke.yaml --skip-existing
+Collection plan: 8 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 16 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (8): [('youtube-dl', '1'), ('youtube-dl', '2'), ('youtube-dl', '3'), ('youtube-dl', '4'), ('youtube-dl', '5')]...
+Collecting youtube-dl bug 1
+  -> youtube-dl bug 1 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 2
+  -> youtube-dl bug 2 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 3
+  -> youtube-dl bug 3 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 4
+  -> youtube-dl bug 4 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 5
+  -> youtube-dl bug 5 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 6
+  -> youtube-dl bug 6 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 7
+  -> youtube-dl bug 7 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 8
+  -> youtube-dl bug 8 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 8 (buggy)
+     collected 1 test execution(s)
+Saved 16 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 16 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+
+Exit code: 0
+
+========================================================================
+2026-07-08T02:57:16.370056  batch-25-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect.yaml --num-bugs 25 --skip-existing
+Collection plan: 25 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 50 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (25): [('httpie', '1'), ('httpie', '2'), ('httpie', '3'), ('httpie', '4'), ('httpie', '5')]...
+Collecting httpie bug 1
+  -> httpie bug 1 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 2
+  -> httpie bug 2 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 3
+  -> httpie bug 3 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 4
+  -> httpie bug 4 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting httpie bug 5
+  -> httpie bug 5 (fixed)
+     collected 1 test execution(s)
+  -> httpie bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 1
+  -> cookiecutter bug 1 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 2
+  -> cookiecutter bug 2 (fixed)
+     collected 2 test execution(s)
+  -> cookiecutter bug 2 (buggy)
+     collected 2 test execution(s)
+Collecting cookiecutter bug 3
+  -> cookiecutter bug 3 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 4
+  -> cookiecutter bug 4 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting sanic bug 1
+  -> sanic bug 1 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/sanic_1_fixed/sanic && bugsinpy-compile']' timed out after 3600 seconds
+  Skipping remaining revisions for sanic bug 1
+Collecting sanic bug 2
+  -> sanic bug 2 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/sanic_2_fixed/sanic && bugsinpy-compile']' timed out after 3600 seconds
+  Skipping remaining revisions for sanic bug 2
+Collecting sanic bug 3
+  -> sanic bug 3 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/sanic_3_fixed/sanic && bugsinpy-compile']' timed out after 3600 seconds
+  Skipping remaining revisions for sanic bug 3
+Collecting sanic bug 4
+  -> sanic bug 4 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/sanic_4_fixed/sanic && bugsinpy-compile']' timed out after 3600 seconds
+  Skipping remaining revisions for sanic bug 4
+Collecting sanic bug 5
+  -> sanic bug 5 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/sanic_5_fixed/sanic && bugsinpy-compile']' timed out after 3600 seconds
+  Skipping remaining revisions for sanic bug 5
+Collecting tqdm bug 1
+  -> tqdm bug 1 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 2
+  -> tqdm bug 2 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 3
+  -> tqdm bug 3 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 4
+  -> tqdm bug 4 (fixed)
+     FAILED: Compile failed for tqdm bug 4 (fixed):
+python setup.py install
+pip3 install nose 
+pip3 install flake8
+pip3 install coverage
+pip3 install pytest
+Collecting attrs==19.3.0
+  Using cached attrs-19.3.0-py2.py3-none-any.whl.metadata (9.0 kB)
+Using cached attrs-19.3.0-py2.py3-none-any.whl (39 kB)
+Installing collected packages: attrs
+Successfully installed attrs-19.3.0
+Collecting coverage==5.1
+  Using cached coverage-5.1-py3-none-any.whl
+Installing collected packages: coverage
+Successfully installed coverage-5.1
+Collecting flake8==3.8.3
+  Using cached flake8-3.8.3-py2.py3-none-any.whl.metadata (3.7 kB)
+Collecting pyflakes<2.3.0,>=2.2.0 (from flake8==3.8.3)
+  Using cached pyflakes-2.2.0-py2.py3-none-any.whl.metadata (3.9 kB)
+Collecting pycodestyle<2.7.0,>=2.6.0a1 (from flake8==3.8.3)
+  Using cached pycodestyle-2.6.0-py2.py3-none-any.whl.metadata (30 kB)
+Collecting mccabe<0.7.0,>=0.6.0 (from flake8==3.8.3)
+  Using cached mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 kB)
+Using cached flake8-3.8.3-py2.py3-none-any.whl (72 kB)
+Using cached mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Using cached pycodestyle-2.6.0-py2.py3-none-any.whl (41 kB)
+Using cached pyflakes-2.2.0-py2.py3-none-any.whl (66 kB)
+Installing collected packages: mccabe, pyflakes, pycodestyle, flake8
+Successfully installed flake8-3.8.3 mccabe-0.6.1 pycodestyle-2.6.0 pyflakes-2.2.0
+Collecting importlib-metadata==1.6.1
+  Using cached importlib_metadata-1.6.1-py2.py3-none-any.whl.metadata (2.1 kB)
+Collecting zipp>=0.5 (from importlib-metadata==1.6.1)
+  Using cached zipp-4.1.0-py3-none-any.whl.metadata (3.6 kB)
+Using cached importlib_metadata-1.6.1-py2.py3-none-any.whl (31 kB)
+Using cached zipp-4.1.0-py3-none-any.whl (10 kB)
+Installing collected packages: zipp, importlib-metadata
+Successfully installed importlib-metadata-1.6.1 zipp-4.1.0
+Requirement already satisfied: mccabe==0.6.1 in ./env/lib/python3.12/site-packages (0.6.1)
+Collecting more-itertools==8.3.0
+  Using cached more_itertools-8.3.0-py3-none-any.whl.metadata (43 kB)
+Using cached more_itertools-8.3.0-py3-none-any.whl (44 kB)
+Installing collected packages: more-itertools
+Successfully installed more-itertools-8.3.0
+Collecting nose==1.3.7
+  Using cached nose-1.3.7-py3-none-any.whl.metadata (1.7 kB)
+Using cached nose-1.3.7-py3-none-any.whl (154 kB)
+Installing collected packages: nose
+Successfully installed nose-1.3.7
+Collecting packaging==20.4
+  Using cached packaging-20.4-py2.py3-none-any.whl.metadata (11 kB)
+Collecting pyparsing>=2.0.2 (from packaging==20.4)
+  Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting six (from packaging==20.4)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Using cached packaging-20.4-py2.py3-none-any.whl (37 kB)
+Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, pyparsing, packaging
+Successfully installed packaging-20.4 pyparsing-3.3.2 six-1.17.0
+Collecting pluggy==0.13.1
+  Using cached pluggy-0.13.1-py2.py3-none-any.whl.metadata (15 kB)
+Using cached pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Installing collected packages: pluggy
+Successfully installed pluggy-0.13.1
+Collecting py==1.8.1
+  Using cached py-1.8.1-py2.py3-none-any.whl.metadata (2.8 kB)
+Using cached py-1.8.1-py2.py3-none-any.whl (83 kB)
+Installing collected packages: py
+Successfully installed py-1.8.1
+Requirement already satisfied: pycodestyle==2.6.0 in ./env/lib/python3.12/site-packages (2.6.0)
+Requirement already satisfied: pyflakes==2.2.0 in ./env/lib/python3.12/site-packages (2.2.0)
+Collecting pyparsing==2.4.7
+  Using cached pyparsing-2.4.7-py2.py3-none-any.whl.metadata (3.6 kB)
+Using cached pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Installing collected packages: pyparsing
+  Attempting uninstall: pyparsing
+    Found existing installation: pyparsing 3.3.2
+    Uninstalling pyparsing-3.3.2:
+      Successfully uninstalled pyparsing-3.3.2
+Successfully installed pyparsing-2.4.7
+Collecting pytest==5.4.3
+  Using cached pytest-5.4.3-py3-none-any.whl.metadata (7.3 kB)
+Requirement already satisfied: py>=1.5.0 in ./env/lib/python3.12/site-packages (from pytest==5.4.3) (1.8.1)
+Requirement already satisfied: packaging in ./env/lib/python3.12/site-packages (from pytest==5.4.3) (20.4)
+Requirement already satisfied: attrs>=17.4.0 in ./env/lib/python3.12/site-packages (from pytest==5.4.3) (19.3.0)
+Requirement already satisfied: more-itertools>=4.0.0 in ./env/lib/python3.12/site-packages (from pytest==5.4.3) (8.3.0)
+Requirement already satisfied: pluggy<1.0,>=0.12 in ./env/lib/python3.12/site-packages (from pytest==5.4.3) (0.13.1)
+Collecting wcwidth (from pytest==5.4.3)
+  Using cached wcwidth-0.8.2-py3-none-any.whl.metadata (43 kB)
+Requirement already satisfied: pyparsing>=2.0.2 in ./env/lib/python3.12/site-packages (from packaging->pytest==5.4.3) (2.4.7)
+Requirement already satisfied: six in ./env/lib/python3.12/site-packages (from packaging->pytest==5.4.3) (1.17.0)
+Using cached pytest-5.4.3-py3-none-any.whl (248 kB)
+Using cached wcwidth-0.8.2-py3-none-any.whl (323 kB)
+Installing collected packages: wcwidth, pytest
+Successfully installed pytest-5.4.3 wcwidth-0.8.2
+Collecting six==1.15.0
+  Using cached six-1.15.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Using cached six-1.15.0-py2.py3-none-any.whl (10 kB)
+Installing collected packages: six
+  Attempting uninstall: six
+    Found existing installation: six 1.17.0
+    Uninstalling six-1.17.0:
+
+dos2unix: converting file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_fixed/tqdm/bugsinpy_requirements.txt to Unix format...
+ERROR: Could not find a version that satisfies the requirement pkg-resources==0.0.0 (from versions: none)
+ERROR: No matching distribution found for pkg-resources==0.0.0
+
+  Skipping remaining revisions for tqdm bug 4
+Collecting tqdm bug 5
+  -> tqdm bug 5 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 6
+  -> tqdm bug 6 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 7
+  -> tqdm bug 7 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 8
+  -> tqdm bug 8 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 8 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 9
+  -> tqdm bug 9 (fixed)
+     collected 2 test execution(s)
+  -> tqdm bug 9 (buggy)
+     collected 2 test execution(s)
+Collecting PySnooper bug 1
+  -> PySnooper bug 1 (fixed)
+     collected 1 test execution(s)
+  -> PySnooper bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting PySnooper bug 2
+  -> PySnooper bug 2 (fixed)
+     collected 1 test execution(s)
+  -> PySnooper bug 2 (buggy)
+     collected 1 test execution(s)
+Recorded 6 failure(s) to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\collection_failures.csv
+Saved 58 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 54 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+)
+Collecting youtube-dl bug 6
+  -> youtube-dl bug 6 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 7
+  -> youtube-dl bug 7 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 8
+  -> youtube-dl bug 8 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 8 (buggy)
+     collected 1 test execution(s)
+Saved 16 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 16 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+
+Exit code: 0
+
+========================================================================
+2026-07-08T09:45:07.911460  batch-25-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect.yaml --num-bugs 25 --skip-existing
+Collection plan: 25 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 50 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (25): [('youtube-dl', '1'), ('youtube-dl', '2'), ('youtube-dl', '3'), ('youtube-dl', '4'), ('youtube-dl', '5')]...
+Collecting youtube-dl bug 1
+  -> youtube-dl bug 1 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 2
+  -> youtube-dl bug 2 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 3
+  -> youtube-dl bug 3 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 4
+  -> youtube-dl bug 4 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 5
+  -> youtube-dl bug 5 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 6
+  -> youtube-dl bug 6 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 7
+  -> youtube-dl bug 7 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 8
+  -> youtube-dl bug 8 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 8 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 9
+  -> youtube-dl bug 9 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 9 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 10
+  -> youtube-dl bug 10 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 10 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 11
+  -> youtube-dl bug 11 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 11 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 12
+  -> youtube-dl bug 12 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 12 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 13
+  -> youtube-dl bug 13 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 13 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 14
+  -> youtube-dl bug 14 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 14 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 15
+  -> youtube-dl bug 15 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 15 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 16
+  -> youtube-dl bug 16 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 16 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 17
+  -> youtube-dl bug 17 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 17 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 18
+  -> youtube-dl bug 18 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 18 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 19
+  -> youtube-dl bug 19 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 19 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 20
+  -> youtube-dl bug 20 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 20 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 21
+  -> youtube-dl bug 21 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 21 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 22
+  -> youtube-dl bug 22 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 22 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 23
+  -> youtube-dl bug 23 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 23 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 24
+  -> youtube-dl bug 24 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 24 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 25
+  -> youtube-dl bug 25 (fixed)
+     FAILED: Missing run test script: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\youtube-dl_25_fixed\youtube-dl\bugsinpy_run_test.sh
+  Skipping remaining revisions for youtube-dl bug 25
+Recorded 1 failure(s) to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\collection_failures.csv
+Saved 90 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 86 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+st execution(s)
+  -> youtube-dl bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 2
+  -> youtube-dl bug 2 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 3
+  -> youtube-dl bug 3 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 4
+  -> youtube-dl bug 4 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 5
+  -> youtube-dl bug 5 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 6
+  -> youtube-dl bug 6 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 7
+  -> youtube-dl bug 7 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 8
+  -> youtube-dl bug 8 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 8 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 9
+  -> youtube-dl bug 9 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 9 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 10
+  -> youtube-dl bug 10 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 10 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 11
+  -> youtube-dl bug 11 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 11 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 12
+  -> youtube-dl bug 12 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 12 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 13
+  -> youtube-dl bug 13 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 13 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 14
+  -> youtube-dl bug 14 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 14 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 15
+  -> youtube-dl bug 15 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 15 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 16
+  -> youtube-dl bug 16 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 16 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 17
+  -> youtube-dl bug 17 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 17 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 18
+  -> youtube-dl bug 18 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 18 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 19
+  -> youtube-dl bug 19 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 19 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 20
+  -> youtube-dl bug 20 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 20 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 21
+  -> youtube-dl bug 21 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 21 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 22
+  -> youtube-dl bug 22 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 22 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 23
+  -> youtube-dl bug 23 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 23 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 24
+  -> youtube-dl bug 24 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 24 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 25
+  -> youtube-dl bug 25 (fixed)
+     FAILED: Checkout project directory missing: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\youtube-dl_25_fixed\youtube-dl
+  Skipping remaining revisions for youtube-dl bug 25
+Collecting youtube-dl bug 26
+  -> youtube-dl bug 26 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 26 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 27
+  -> youtube-dl bug 27 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_27_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 27
+Collecting youtube-dl bug 28
+  -> youtube-dl bug 28 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_28_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 28
+Collecting youtube-dl bug 29
+  -> youtube-dl bug 29 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_29_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 29
+Collecting youtube-dl bug 30
+  -> youtube-dl bug 30 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_30_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 30
+Collecting youtube-dl bug 31
+  -> youtube-dl bug 31 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_31_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 31
+Collecting youtube-dl bug 32
+  -> youtube-dl bug 32 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 32 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 33
+  -> youtube-dl bug 33 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 33 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 34
+  -> youtube-dl bug 34 (fixed)
+     FAILED: Checkout failed for youtube-dl bug 34 (fixed):
+PROJECT_NAME: youtube-dl
+BUG_ID: 34
+VERSION_ID: 1
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed
+https://github.com/ytdl-org/youtube-dl
+github_url="https://github.com/ytdl-org/youtube-dl"
+status="OK" 
+cause="N.A."
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl'...
+error: could not lock config file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/.git/config: File exists
+fatal: could not set 'core.repositoryformatversion' to '0'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '410f3e73ab268f74a455798ee39de5caba90caea'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '07e764439a1cdd3a3b95fbf21acc6a517c6a889e'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/34/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_34_fixed/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for youtube-dl bug 34
+Collecting youtube-dl bug 35
+  -> youtube-dl bug 35 (fixed)
+     FAILED: Checkout failed for youtube-dl bug 35 (fixed):
+PROJECT_NAME: youtube-dl
+BUG_ID: 35
+VERSION_ID: 1
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed
+https://github.com/ytdl-org/youtube-dl
+github_url="https://github.com/ytdl-org/youtube-dl"
+status="OK" 
+cause="N.A."
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl'...
+error: could not lock config file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/.git/config: File exists
+fatal: could not set 'remote.origin.fetch' to '+refs/heads/*:refs/remotes/origin/*'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '99b67fecc5ab6c57eada1e1678034dd71c57e338'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '89294b5f50462ede8ba83463ff262eb2c5219e1b'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/35/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_35_fixed/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for youtube-dl bug 35
+Collecting youtube-dl bug 36
+  -> youtube-dl bug 36 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 36 (buggy)
+     FAILED: Checkout failed for youtube-dl bug 36 (buggy):
+PROJECT_NAME: youtube-dl
+BUG_ID: 36
+VERSION_ID: 0
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy
+https://github.com/ytdl-org/youtube-dl
+github_url="https://github.com/ytdl-org/youtube-dl"
+status="OK" 
+cause="N.A."
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl'...
+fatal: --stdin requires a git repository
+fatal: fetch-pack: invalid index-pack output
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object 'a6da7b6b9657f621a927cb4c7bc46cf7c6c27b11'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/test/test_all_urls.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object '173a7026d59bacfbfe7a8eea92e10ef6e89d1798'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/36/test/test_all_urls.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_36_buggy/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for youtube-dl bug 36
+Collecting youtube-dl bug 37
+  -> youtube-dl bug 37 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 37 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 38
+  -> youtube-dl bug 38 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 38 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 39
+  -> youtube-dl bug 39 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 39 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 40
+  -> youtube-dl bug 40 (fixed)
+     FAILED: Checkout failed for youtube-dl bug 40 (fixed):
+PROJECT_NAME: youtube-dl
+BUG_ID: 40
+VERSION_ID: 1
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed
+https://github.com/ytdl-org/youtube-dl
+github_url="https://github.com/ytdl-org/youtube-dl"
+status="OK" 
+cause="N.A."
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl'...
+error: chmod on /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/.git/config.lock failed: No such file or directory
+fatal: could not set 'core.bare' to 'false'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object 'b53466e1680db3d710415329674c887d38af46c5'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '6a7a38967976ea0d0b911c2965aaa74bed2976d7'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/40/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for youtube-dl bug 40
+Collecting youtube-dl bug 41
+  -> youtube-dl bug 41 (fixed)
+     FAILED: Missing run test script: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\youtube-dl_41_fixed\youtube-dl\bugsinpy_run_test.sh
+  Skipping remaining revisions for youtube-dl bug 41
+Collecting youtube-dl bug 42
+  -> youtube-dl bug 42 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 42 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 43
+  -> youtube-dl bug 43 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 43 (buggy)
+     FAILED: Compile failed for youtube-dl bug 43 (buggy):
+
+Error: [Errno 2] No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-compile: line 68: env/bin/activate: No such file or directory
+dos2unix: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_requirements.txt: No such file or directory
+dos2unix: Skipping /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_requirements.txt, not a regular file.
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-compile: line 106: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_bug.info: No such file or directory
+grep: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_requirements.txt: No such file or directory
+grep: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_requirements.txt: No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-compile: line 141: deactivate: command not found
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-compile: line 216: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_compile_flag: No such file or directory
+
+  Skipping remaining revisions for youtube-dl bug 43
+Collecting tqdm bug 1
+  -> tqdm bug 1 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 2
+  -> tqdm bug 2 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 3
+  -> tqdm bug 3 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 4
+  -> tqdm bug 4 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 4 (buggy)
+     FAILED: Checkout failed for tqdm bug 4 (buggy):
+PROJECT_NAME: tqdm
+BUG_ID: 4
+VERSION_ID: 0
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy
+https://github.com/tqdm/tqdm
+github_url="https://github.com/tqdm/tqdm"
+status="OK" 
+cause="N.A."
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm'...
+error: unable to write file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/.git/objects/pack/pack-2f09ce8d787fc40da8271dd03f06c162fd1159af.pack: No such file or directory
+fatal: unable to rename temporary '*.pack' file to '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/.git/objects/pack/pack-2f09ce8d787fc40da8271dd03f06c162fd1159af.pack'
+fatal: fetch-pack: invalid index-pack output
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm: No such file or directory
+fatal: Could not parse object '964dee631d0ed30e2f799b42fc58ba5e73795a08'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/tqdm/tests/tests_tqdm.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm: No such file or directory
+fatal: Could not parse object '03b347646492131d889871939b40457d29147216'.
+warning: failed to remove tqdm/tests: No such file or directory
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/tqdm/bugs/4/tqdm/tests/tests_tqdm.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_run_test.sh': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_setup.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for tqdm bug 4
+Collecting tqdm bug 5
+  -> tqdm bug 5 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 6
+  -> tqdm bug 6 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 7
+  -> tqdm bug 7 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 7 (buggy)
+     collected 1 test execution(s)
+Recorded 13 failure(s) to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\collection_failures.csv
+Saved 107 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 103 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+ce/youtube-dl_43_buggy/youtube-dl/.git/config: No such file or directory
+fatal: could not set 'core.repositoryformatversion' to '0'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object 'd6c7a367e88096bb17e323954002c084477fe908'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl: No such file or directory
+fatal: Could not parse object 'cecaaf3f58ad9f544dbb79af1e565d9353fa2b2d'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/43/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_43_buggy/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for youtube-dl bug 43
+Collecting tqdm bug 1
+  -> tqdm bug 1 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 2
+  -> tqdm bug 2 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 3
+  -> tqdm bug 3 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 4
+  -> tqdm bug 4 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 4 (buggy)
+     FAILED: Checkout failed for tqdm bug 4 (buggy):
+PROJECT_NAME: tqdm
+BUG_ID: 4
+VERSION_ID: 0
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy
+https://github.com/tqdm/tqdm
+github_url="https://github.com/tqdm/tqdm"
+status="OK" 
+cause="N.A."
+Removing tqdm/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm'...
+error: could not lock config file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/.git/config: No such file or directory
+fatal: could not set 'core.repositoryformatversion' to '0'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm: No such file or directory
+fatal: Could not parse object '964dee631d0ed30e2f799b42fc58ba5e73795a08'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/tqdm/tests/tests_tqdm.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm: No such file or directory
+fatal: Could not parse object '03b347646492131d889871939b40457d29147216'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/tqdm/bugs/4/tqdm/tests/tests_tqdm.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_run_test.sh': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm/bugsinpy_setup.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for tqdm bug 4
+Collecting tqdm bug 5
+  -> tqdm bug 5 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 6
+  -> tqdm bug 6 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 7
+  -> tqdm bug 7 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 7 (buggy)
+     collected 1 test execution(s)
+Recorded 12 failure(s) to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\collection_failures.csv
+Saved 111 test-level rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features.csv
+Saved 107 revision-aggregate rows to C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\processed\bugsinpy_features_revision_aggregate.csv
+Raw artifacts: C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\data\raw\bugsinpy\runs
+
+Exit code: 0
+
+========================================================================
+2026-07-08T16:31:43.761324  batch-75-bugs
+C:\Users\chenj\Desktop\MITACS\quantum-work\.venv\Scripts\python.exe C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\scripts\run_bugsinpy_collection.py --config C:\Users\chenj\Desktop\MITACS\quantum-work\VQAE_experiment\configs\bugsinpy_collect.yaml --num-bugs 75 --skip-existing
+Collection plan: 75 bugs, all triggering tests in run_test.sh, 2 revisions each -> up to 150 test-level rows (more if bugs have multiple triggering tests).
+Planned bugs (75): [('youtube-dl', '1'), ('youtube-dl', '2'), ('youtube-dl', '3'), ('youtube-dl', '4'), ('youtube-dl', '5')]...
+Collecting youtube-dl bug 1
+  -> youtube-dl bug 1 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 2
+  -> youtube-dl bug 2 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 3
+  -> youtube-dl bug 3 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 4
+  -> youtube-dl bug 4 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 5
+  -> youtube-dl bug 5 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 6
+  -> youtube-dl bug 6 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 7
+  -> youtube-dl bug 7 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 8
+  -> youtube-dl bug 8 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 8 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 9
+  -> youtube-dl bug 9 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 9 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 10
+  -> youtube-dl bug 10 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 10 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 11
+  -> youtube-dl bug 11 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 11 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 12
+  -> youtube-dl bug 12 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 12 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 13
+  -> youtube-dl bug 13 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 13 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 14
+  -> youtube-dl bug 14 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 14 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 15
+  -> youtube-dl bug 15 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 15 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 16
+  -> youtube-dl bug 16 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 16 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 17
+  -> youtube-dl bug 17 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 17 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 18
+  -> youtube-dl bug 18 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 18 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 19
+  -> youtube-dl bug 19 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 19 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 20
+  -> youtube-dl bug 20 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 20 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 21
+  -> youtube-dl bug 21 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 21 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 22
+  -> youtube-dl bug 22 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 22 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 23
+  -> youtube-dl bug 23 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 23 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 24
+  -> youtube-dl bug 24 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 24 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 25
+  -> youtube-dl bug 25 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 25 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 26
+  -> youtube-dl bug 26 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 26 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 27
+  -> youtube-dl bug 27 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 27 (buggy)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_27_buggy/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 27
+Collecting youtube-dl bug 28
+  -> youtube-dl bug 28 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_28_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 28
+Collecting youtube-dl bug 29
+  -> youtube-dl bug 29 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_29_fixed/youtube-dl && bugsinpy-compile']' timed      FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/User     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_30_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 30
+Collecting youtube-dl bug 31
+  -> youtube-dl bug 31 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_31_fixed/youtube-dl && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for youtube-dl bug 31
+Collecting youtube-dl bug 32
+  -> youtube-dl bug 32 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 32 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 33
+  -> youtube-dl bug 33 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 33 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 34
+  -> youtube-dl bug 34 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 34 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 35
+  -> youtube-dl bug 35 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 35 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 36
+  -> youtube-dl bug 36 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 36 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 37
+  -> youtube-dl bug 37 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 37 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 38
+  -> youtube-dl bug 38 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 38 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 39
+  -> youtube-dl bug 39 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 39 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 40
+  -> youtube-dl bug 40 (fixed)
+     FAILED: Checkout failed for youtube-dl bug 40 (fixed):
+PROJECT_NAME: youtube-dl
+BUG_ID: 40
+VERSION_ID: 1
+WORK_DIR: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed
+https://github.com/ytdl-org/youtube-dl
+github_url="https://github.com/ytdl-org/youtube-dl"
+status="OK" 
+cause="N.A."
+Removing test/
+
+Cloning into '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl'...
+error: could not lock config file /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/.git/config: No such file or directory
+fatal: could not set 'core.repositoryformatversion' to '0'
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 141: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object 'b53466e1680db3d710415329674c887d38af46c5'.
+cp: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 172: cd: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl: No such file or directory
+fatal: Could not parse object '6a7a38967976ea0d0b911c2965aaa74bed2976d7'.
+mv: cannot stat '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/projects/youtube-dl/bugs/40/test/test_utils.py': No such file or directory
+/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin/bugsinpy-checkout: line 199: /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_patchfile.info: No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_bug.info': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_requirements.txt': No such file or directory
+cp: cannot create regular file '/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/youtube-dl_40_fixed/youtube-dl/bugsinpy_run_test.sh': No such file or directory
+rm: cannot remove '*/': No such file or directory
+
+  Skipping remaining revisions for youtube-dl bug 40
+Collecting youtube-dl bug 41
+  -> youtube-dl bug 41 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 41 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 42
+  -> youtube-dl bug 42 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 42 (buggy)
+     collected 1 test execution(s)
+Collecting youtube-dl bug 43
+  -> youtube-dl bug 43 (fixed)
+     collected 1 test execution(s)
+  -> youtube-dl bug 43 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 1
+  -> tqdm bug 1 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 2
+  -> tqdm bug 2 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 2 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 3
+  -> tqdm bug 3 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 4
+  -> tqdm bug 4 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 4 (buggy)
+     FAILED: Missing run test script: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\tqdm_4_buggy\tqdm\bugsinpy_run_test.sh
+  Skipping remaining revisions for tqdm bug 4
+Collecting tqdm bug 5
+  -> tqdm bug 5 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 6
+  -> tqdm bug 6 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 7
+  -> tqdm bug 7 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 8
+  -> tqdm bug 8 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 8 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 9
+  -> tqdm bug 9 (fixed)
+     collected 2 test execution(s)
+  -> tqdm bug 9 (buggy)
+     collected 2 test execution(s)
+Collecting cookiecutter bug 1
+  -> cookiecutter bug 1 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 1 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 2
+  -> cookiecutter bug 2 (fixed)
+     collected 2 test execution(s)
+  -> cookiecutter bug 2 (buggy)
+     collected 2 test execution(s)
+Collecting cookiecutter bug 3
+  -> cookiecutter bug 3 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 3 (buggy)
+     collected 1 test execution(s)
+Collecting cookiecutter bug 4
+  -> cookiecutter bug 4 (fixed)
+     collected 1 test execution(s)
+  -> cookiecutter bug 4 (buggy)
+     collected 1 test execution(s)
+Collecting PySnooper bug 1
+  -> PySnooper bug 1 (fixed)
+     collected 1 test execution(s)
+  -> PySnooper bug 1 (buggy)
+     collected 1 test execution(s)
+Col     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/tqdm_4_buggy/tqdm && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for tqdm bug 4
+Collecting tqdm bug 5
+  -> tqdm bug 5 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 5 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 6
+  -> tqdm bug 6 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 6 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 7
+  -> tqdm bug 7 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 7 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 8
+  -> tqdm bug 8 (fixed)
+     collected 1 test execution(s)
+  -> tqdm bug 8 (buggy)
+     collected 1 test execution(s)
+Collecting tqdm bug 9
+  -> tqdm bug 9 (fixed)
+     collected 2 test execution(s)
+  -> tqdm bug 9 (buggy)
+     collected 2 test execution(s)
+Collecting cookiecutter bug 1
+  -> cookiecutter bug 1 (fixed)
+     collected 1 test execution(s)
+      FAILED: Missing run test script: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\thefuck_1_fixed\thefuck\bugsinpy_run_test.sh
+  Skipping remaining revisions for thefuck bug 1
+Collecting thefuck bug 2
+  -> thefuck bug 2 (fixed)
+     FAILED: Missing run test script: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\thefuck_2_fixed\thefuck\bugsinpy_run_test.sh
+  Skipping remaining revisions for thefuck bug 2
+Collecting thefuck bug 3
+  -> thefuck bug 3 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_3_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 3
+Collecting thefuck bug 4
+  -> thefuck bug 4 (fixed)
+     FAILED: Missing run test script: C:\Users\chenj\Desktop\MITACS\BugsInPy\workspace\thefuck_4_fixed\thefuck\bugsinpy_run_test.sh
+  Skipping remaining revisions for thefuck bug 4
+Collecting thefuck bug 5
+  -> thefuck bug 5 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_5_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 5
+Collecting thefuck bug 6
+  -> thefuck bug 6 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_6_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 6
+Collecting thefuck bug 7
+  -> thefuck bug 7 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_7_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 7
+Collecting thefuck bug 8
+  -> thefuck bug 8 (fixed)
+ck bug 1
+Collecting thefuck bug 2
+  -> thefuck bug 2 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_2_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 2
+Collecting thefuck bug 3
+  -> thefuck bug 3 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_3_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 3
+Collecting thefuck bug 4
+  -> thefuck bug 4 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_4_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 4
+Collecting thefuck bug 5
+  -> thefuck bug 5 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_5_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 5
+Collecting thefuck bug 6
+  -> thefuck bug 6 (fixed)
+     FAILED: Command '['wsl', 'bash', '-lc', 'export PATH="$PATH:/mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/framework/bin" && cd /mnt/c/Users/chenj/Desktop/MITACS/BugsInPy/workspace/thefuck_6_fixed/thefuck && bugsinpy-compile']' timed out after 1200 seconds
+  Skipping remaining revisions for thefuck bug 6
+Collecting thefuck bug 7
+  -> thefuck bug 7 (fixed)

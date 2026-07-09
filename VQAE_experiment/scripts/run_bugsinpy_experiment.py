@@ -21,7 +21,7 @@ from src.quantum.trainer import train_vqae
 from src.quantum.evaluator import evaluate_angle_batch
 from src.quantum.backend import create_backend_runner
 from src.reporting.metrics import classification_metrics
-from src.reporting.plots import plot_loss_curve, plot_score_histogram, plot_roc_curve, plot_pr_curve, plot_baseline_comparison
+from src.reporting.plots import plot_loss_curve, plot_score_histogram, plot_roc_curve, plot_pr_curve
 from src.reporting.artifacts import create_experiment_dir, save_config_copy, save_reproducibility_metadata, save_training_metrics
 
 
