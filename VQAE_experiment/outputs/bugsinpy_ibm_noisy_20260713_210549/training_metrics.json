@@ -1,0 +1,7 @@
+{
+  "training_objective": "sampled_swap_test",
+  "training_mode": "noisy_training",
+  "final_training_loss": 0.2222635020380435,
+  "optimizer_evaluations": 53,
+  "training_time_seconds": 2206.730624700198
+}

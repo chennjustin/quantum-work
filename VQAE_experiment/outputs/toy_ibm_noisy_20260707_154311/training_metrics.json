@@ -1,0 +1,12 @@
+{
+  "training_objective": "sampled_swap_test",
+  "training_mode": "noisy_training",
+  "backend_mode": "ibm_fake_noisy",
+  "fake_backend_name": "fake_manila",
+  "shots": 2048,
+  "success": false,
+  "message": "Maximum number of function evaluations has been exceeded.",
+  "optimizer_evaluations": 40,
+  "training_time_seconds": 126.99794630007818,
+  "final_training_loss": 0.047379557291666666
+}

@@ -16,7 +16,7 @@ if str(EXPERIMENT_ROOT) not in sys.path:
 from src.config import load_config
 from src.data.preprocessing import FeaturePreprocessor
 from src.data.splits import build_bugsinpy_splits
-from src.data.bugsinpy_features import load_processed_features
+from src.data.bugsinpy_features import filter_complete_feature_pairs, load_processed_features
 from src.quantum.trainer import train_vqae
 from src.quantum.evaluator import evaluate_angle_batch
 from src.quantum.backend import create_backend_runner
@@ -40,7 +40,17 @@ def main() -> None:
 
     df = load_processed_features(processed_path)
     features = config.data.bugsinpy.selected_features
+    df = filter_complete_feature_pairs(df, features)
+    n_pairs = df.groupby(["project", "bug_id", "test_id"]).ngroups
+    print(
+        f"Using {len(df)} rows / {n_pairs} test pairs "
+        f"across {df.groupby(['project', 'bug_id']).ngroups} bugs"
+    )
     splits = build_bugsinpy_splits(df)
+    for name, split_df in splits.items():
+        n_fixed = int((split_df["label"] == 0).sum())
+        n_buggy = int((split_df["label"] == 1).sum())
+        print(f"  {name}: {len(split_df)} rows (fixed={n_fixed}, buggy={n_buggy})")
 
     for name, split_df in splits.items():
         manifest_path = EXPERIMENT_ROOT / "data" / "manifests" / f"{name}_manifest.csv"
@@ -49,7 +59,9 @@ def main() -> None:
 
     preprocessor = FeaturePreprocessor(feature_columns=features)
     train_angles = preprocessor.fit_transform(splits["train"])
-    val_angles = preprocessor.transform(splits["validation"])
+    val_df = splits["validation"]
+    val_angles = preprocessor.transform(val_df)
+    val_normal_mask = (val_df["label"].to_numpy() == 0)
 
     output_dir = create_experiment_dir(EXPERIMENT_ROOT / "outputs", config.experiment_name)
     save_config_copy(Path(args.config), output_dir)
@@ -58,13 +70,12 @@ def main() -> None:
     train_result = train_vqae(train_angles, config)
 
     all_metrics = []
-    normal_test = splits["test"][splits["test"]["label"] == 0]
-    anomaly_test = splits["test"][splits["test"]["label"] == 1]
-    test_angles = preprocessor.transform(splits["test"])
-
-    n_normal = len(normal_test)
-    normal_angles = test_angles[:n_normal]
-    anomaly_angles = test_angles[n_normal:]
+    test_df = splits["test"]
+    normal_mask = test_df["label"].to_numpy() == 0
+    anomaly_mask = test_df["label"].to_numpy() == 1
+    test_angles = preprocessor.transform(test_df)
+    normal_angles = test_angles[normal_mask]
+    anomaly_angles = test_angles[anomaly_mask]
 
     for seed in config.evaluation.noise_seeds:
         backend = create_backend_runner(
@@ -76,8 +87,9 @@ def main() -> None:
         normal_eval = evaluate_angle_batch(train_result.theta, normal_angles, config, backend, include_ideal_diagnostics=False)
         anomaly_eval = evaluate_angle_batch(train_result.theta, anomaly_angles, config, backend, include_ideal_diagnostics=False)
         val_eval = evaluate_angle_batch(train_result.theta, val_angles, config, backend, include_ideal_diagnostics=False)
+        val_normal_scores = np.asarray(val_eval["swap_test_loss"])[val_normal_mask]
         metrics = classification_metrics(
-            val_eval["swap_test_loss"],
+            val_normal_scores,
             normal_eval["swap_test_loss"],
             anomaly_eval["swap_test_loss"],
             config.evaluation.validation_quantile,

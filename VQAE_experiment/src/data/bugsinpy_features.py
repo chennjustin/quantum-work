@@ -295,6 +295,29 @@ def load_processed_features(path: Path) -> pd.DataFrame:
         df = df[df["granularity"] == "test"].copy()
     return df.reset_index(drop=True)
 
+
+def filter_complete_feature_pairs(
+    df: pd.DataFrame,
+    feature_columns: list[str],
+) -> pd.DataFrame:
+    """Keep rows whose (project, bug_id, test_id) pair has all features on both revisions."""
+
+    complete_keys: set[tuple[str, str, str]] = set()
+    for key, group in df.groupby(["project", "bug_id", "test_id"], dropna=False):
+        if len(group) != 2:
+            continue
+        if group[feature_columns].notna().all().all():
+            complete_keys.add((str(key[0]), str(key[1]), str(key[2])))
+
+    if not complete_keys:
+        raise ValueError("No complete fixed/buggy feature pairs remain after filtering")
+
+    mask = df.apply(
+        lambda row: (str(row["project"]), str(row["bug_id"]), str(row["test_id"])) in complete_keys,
+        axis=1,
+    )
+    return df.loc[mask].reset_index(drop=True)
+
 def save_processed_features(df: pd.DataFrame, path: Path) -> None:
     """Save processed feature CSV."""
 
