@@ -1,2 +1,0 @@
-threshold,threshold_quantile,accuracy,precision,recall,f1,roc_auc,pr_auc,false_positive_rate,recall_at_5pct_fpr,noise_seed
-0.001220703125,0.95,0.9625,0.9868421052631579,0.9375,0.9615384615384616,0.9957812500000001,0.9944592908474869,0.0125,0.9875,101
